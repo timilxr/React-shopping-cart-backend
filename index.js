@@ -29,9 +29,11 @@ import OrderRouter from './routes/orders.js';
 import UserRouter from './routes/users.js';
 import ProductRouter from './routes/products.js';
 
+
+app.listen(PORT, ()=>console.log(`Server running on port: ${PORT}`));
+
 app.use('/products', ProductRouter)
 app.use('/users', UserRouter)
 app.use('/orders', OrderRouter)
 
-// app.get('/', (req, res)=>res.send('Hello From Express!!'));
-app.listen(PORT, ()=>console.log(`Server running on port: ${PORT}`));
+app.get('/', (req, res)=>res.send('Hello From Express!!'));
