@@ -13,7 +13,10 @@
     "start": "nodemon index.js",
     "client": "cd ../react-shopping-cart-master/ && npm start --prefix react-shopping-cart-master"
   },
-  "keywords": [],
+  "keywords": [
+    "example",
+    "heroku"
+  ],
   "author": "",
   "license": "ISC",
   "dependencies": {
