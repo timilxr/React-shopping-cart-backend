@@ -33,6 +33,5 @@ app.use('/products', ProductRouter)
 app.use('/users', UserRouter)
 app.use('/orders', OrderRouter)
 
+// app.get('/', (req, res)=>res.send('Hello From Express!!'));
 app.listen(PORT, ()=>console.log(`Server running on port: ${PORT}`));
-
-app.get('/', (req, res)=>res.send('Hello From Express!!'));
