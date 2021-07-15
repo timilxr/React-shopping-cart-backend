@@ -9,7 +9,7 @@ export const getProducts = async (req, res) => {
         console.log(products);
         res.status(200).json(products);
     }
-    catch{
+    catch(error){
         res.status(400).json({message: error.message, info: 'No product now found'});
     }
 }
@@ -20,7 +20,7 @@ export const getProductById = async (req, res) => {
         console.log(product);
         res.status(200).json(product);
     }
-    catch{
+    catch(error){
         res.status(400).json({message: error.message, info: 'Product not found'});
     }
 }
@@ -31,15 +31,15 @@ export const deleteProduct = async (req, res) => {
         console.log(product);
         res.status(200).json(product);
     }
-    catch{
+    catch(error){
         res.status(400).json({message: error.message, info: 'Product not found'});
     }
 }
 
 export const createProduct = async (req, res) => {
     const details = req.body;
-    // const data = getProducts();
-    // details.id = data.length > 0 ? data[data.length - 1].id + 1 : 1;
+    const data = getProducts();
+    details.id = data.length > 0 ? data[data.length - 1].id + 1 : 1;
 
     const newProduct = new Product(details);
     try{
@@ -47,7 +47,7 @@ export const createProduct = async (req, res) => {
         // console.log(products);
         res.status(200).json(product);
     }
-    catch{
+    catch(error){
         res.status(400).json({message: error.message, info: 'Error creating Product'});
     }
 }
@@ -66,11 +66,11 @@ export const updateProduct = async (req, res) => {
             const newProduct = await product.save();
             res.status(200).json(newProduct);
         }
-        catch{
+        catch(error){
             res.status(400).json({message: error.message, info: 'Product not updated'})
         }
     }
-    catch{
+    catch(error){
         res.status(400).json({message: error.message, info: 'Product not found'});
     }
 }

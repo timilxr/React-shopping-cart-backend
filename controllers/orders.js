@@ -1,13 +1,20 @@
 import Order from '../models/order.model.js';
+import { order } from '../productData.js';
 
 
 export const getOrders = async (req, res) => {
     try{
+        try{
+            await Order.insertMany(order);
+        }
+        catch(error){
+        res.status(400).json({message: error.message, info: 'No Order found'});
+        }
         const orders = await Order.find();
         console.log(orders);
         res.status(200).json(orders);
     }
-    catch{
+    catch(error){
         res.status(400).json({message: error.message, info: 'No Order found'});
     }
 }
@@ -18,7 +25,7 @@ export const getOrderById = async (req, res) => {
         console.log(order);
         res.status(200).json(order);
     }
-    catch{
+    catch(error){
         res.status(400).json({message: error.message, info: 'Order not found'});
     }
 }
@@ -29,7 +36,7 @@ export const deleteOrder = async (req, res) => {
         console.log(order);
         res.status(200).json(order);
     }
-    catch{
+    catch(error){
         res.status(400).json({message: error.message, info: 'Order not found'});
     }
 }
@@ -43,7 +50,7 @@ export const createOrder = async (req, res) => {
         // console.log(orders);
         res.status(200).json(order);
     }
-    catch{
+    catch(error){
         res.status(400).json({message: error.message, info: 'Error creating Order'});
     }
 }
@@ -64,11 +71,11 @@ export const updateOrder = async (req, res) => {
             const newOrder = await order.save();
             res.status(200).json(newOrder);
         }
-        catch{
+        catch(error){
             res.status(400).json({message: error.message, info: 'Order not updated'})
         }
     }
-    catch{
+    catch(error){
         res.status(400).json({message: error.message, info: 'Order not found'});
     }
 }

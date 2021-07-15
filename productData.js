@@ -78,4 +78,20 @@ const products = [
     },
 ];
 
+export const order = {
+    orderItems: [
+        {
+          name: "Urbanc3tre Flip Joggers",
+          quantity: 1,
+          image: "https://res.cloudinary.com/ayorinde-timilehin/image/upload/v1624400267/8_jumffk.jpg",
+          price: 30,
+          category: "Clothes",
+          _id: '60d9c2dbe86e686060fd2168',
+        }
+      ],
+    shippingPrice: 30,
+    taxPrice: 20,
+    totalPrice: 50
+}
+
 export default products;

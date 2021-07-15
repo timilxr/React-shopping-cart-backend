@@ -3,18 +3,18 @@ const Schema = mongoose.Schema;
 
 const orderSchema = new Schema(
     {
-        user: {
-          type: mongoose.Schema.Types.ObjectId,
-          required: true,
-          ref: 'User',
-        },
+        // user: {
+        //   type: mongoose.Schema.Types.ObjectId,
+        //   required: true,
+        //   ref: 'User',
+        // },
         orderItems: [
           {
             name: { type: String, required: true },
             quantity: { type: Number, required: true },
             image: { type: String, required: true },
             price: { type: Number, required: true },
-            category: { type: Number, required: true },
+            category: { type: String, required: true },
             id: {
               type: mongoose.Schema.Types.ObjectId,
               required: true,
@@ -31,16 +31,28 @@ const orderSchema = new Schema(
           code: { type: String, required: true },
           country: { type: String, required: true },
         },
-        // paymentMethod: {
-        //   type: String,
-        //   required: true,
-        // },
-        // paymentResult: {
-        //   id: { type: String },
-        //   status: { type: String },
-        //   update_time: { type: String },
-        //   email_address: { type: String },
-        // },
+        paymentMethod: {
+          type: String,
+          required: true,
+        },
+        paymentResult: {
+          amount: {type: Number},
+          currency: {type: String},
+          customer: {
+               name: {type: String}, 
+               email: {type: String},
+               phone_number: {type: String},
+           },
+          flw_ref: {type: String},
+          status: {type: String},
+          tx_ref: {type: Date},
+          transaction_id: {type: Number}
+       },
+       cartSubTotalPrice: {
+        type: Number,
+        required: true,
+        default: 0.0,
+      },
         taxPrice: {
           type: Number,
           required: true,
@@ -56,22 +68,22 @@ const orderSchema = new Schema(
           required: true,
           default: 0.0,
         },
-        // isPaid: {
-        //   type: Boolean,
-        //   required: true,
-        //   default: false,
-        // },
-        // paidAt: {
-        //   type: Date,
-        // },
-        // isDelivered: {
-        //   type: Boolean,
-        //   required: true,
-        //   default: false,
-        // },
-        // deliveredAt: {
-        //   type: Date,
-        // },
+        isPaid: {
+          type: Boolean,
+          required: true,
+          default: false,
+        },
+        paidAt: {
+          type: Date,
+        },
+        isDelivered: {
+          type: Boolean,
+          required: true,
+          default: false,
+        },
+        deliveredAt: {
+          type: Date,
+        },
       },
       {
         timestamps: true,

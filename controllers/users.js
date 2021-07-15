@@ -7,7 +7,7 @@ export const getUsers = async (req, res) => {
         console.log(users);
         res.status(200).json(users);
     }
-    catch{
+    catch(error){
         res.status(400).json({message: error.message, info: 'No User not found'});
     }
 }
@@ -18,7 +18,7 @@ export const getUserById = async (req, res) => {
         console.log(user);
         res.status(200).json(user);
     }
-    catch{
+    catch(error){
         res.status(400).json({message: error.message, info: 'User not found'});
     }
 }
@@ -29,7 +29,7 @@ export const deleteUser = async (req, res) => {
         console.log(user);
         res.status(200).json(user);
     }
-    catch{
+    catch(error){
         res.status(400).json({message: error.message, info: 'User not found'});
     }
 }
@@ -43,7 +43,7 @@ export const createUser = async (req, res) => {
         // console.log(Users);
         res.status(200).json(user);
     }
-    catch{
+    catch(error){
         res.status(400).json({message: error.message, info: 'Error creating User'});
     }
 }
@@ -64,11 +64,11 @@ export const updateUser = async (req, res) => {
             const newUser = await user.save();
             res.status(200).json(newUser);
         }
-        catch{
+        catch(error){
             res.status(400).json({message: error.message, info: 'User not updated'})
         }
     }
-    catch{
+    catch(error){
         res.status(400).json({message: error.message, info: 'User not found'});
     }
 }
