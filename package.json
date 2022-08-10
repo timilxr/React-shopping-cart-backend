@@ -3,9 +3,9 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "engines":{
+  "engines": {
     "npm": "6.14.8",
-     "node": "14.10.1"
+    "node": "14.10.1"
   },
   "type": "module",
   "scripts": {

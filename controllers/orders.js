@@ -11,7 +11,7 @@ export const getOrders = async (req, res) => {
         res.status(400).json({message: error.message, info: 'No Order found'});
         }
         const orders = await Order.find();
-        console.log(orders);
+        // console.log(orders);
         res.status(200).json(orders);
     }
     catch(error){
@@ -22,7 +22,7 @@ export const getOrders = async (req, res) => {
 export const getOrderById = async (req, res) => {
     try{
         const order = await Order.findById(req.params.id);
-        console.log(order);
+        // console.log(order);
         res.status(200).json(order);
     }
     catch(error){
@@ -33,7 +33,7 @@ export const getOrderById = async (req, res) => {
 export const deleteOrder = async (req, res) => {
     try{
         const order = await Order.findByIdAndDelete(req.params.id);
-        console.log(order);
+        // console.log(order);
         res.status(200).json(order);
     }
     catch(error){

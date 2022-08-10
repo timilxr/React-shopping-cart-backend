@@ -19,7 +19,7 @@ app.use(express.json());
 app.use(cors());
 // import Product from './models/product.model.js';
 
-mongoose.connect(uri, { useNewUrlParser: true, useCreateIndex: true, useUnifiedTopology: true })
+mongoose.connect(uri, { useNewUrlParser: true, useCreateIndex: true, dbName: 'shoppingCart', useUnifiedTopology: true })
 .then(()=>console.log("Database connected successfully"))
 .catch(error=>console.log(error.message));
 

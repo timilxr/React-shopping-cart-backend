@@ -6,7 +6,7 @@ export const getProducts = async (req, res) => {
     try{
         // Product.insertMany(data);
         const products = await Product.find();
-        console.log(products);
+        // console.log(products);
         res.status(200).json(products);
     }
     catch(error){
@@ -17,7 +17,7 @@ export const getProducts = async (req, res) => {
 export const getProductById = async (req, res) => {
     try{
         const product = await Product.findById(req.params.id);
-        console.log(product);
+        // console.log(product);
         res.status(200).json(product);
     }
     catch(error){
@@ -28,7 +28,7 @@ export const getProductById = async (req, res) => {
 export const deleteProduct = async (req, res) => {
     try{
         const product = await Product.findByIdAndDelete(req.params.id);
-        console.log(product);
+        // console.log(product);
         res.status(200).json(product);
     }
     catch(error){

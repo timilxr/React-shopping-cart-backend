@@ -4,7 +4,7 @@ import User from '../models/user.model.js';
 export const getUsers = async (req, res) => {
     try{
         const users = await User.find();
-        console.log(users);
+        // console.log(users);
         res.status(200).json(users);
     }
     catch(error){
@@ -15,7 +15,7 @@ export const getUsers = async (req, res) => {
 export const getUserById = async (req, res) => {
     try{
         const user = await User.findById(req.params.id);
-        console.log(user);
+        // console.log(user);
         res.status(200).json(user);
     }
     catch(error){
@@ -26,7 +26,7 @@ export const getUserById = async (req, res) => {
 export const deleteUser = async (req, res) => {
     try{
         const user = await User.findByIdAndDelete(req.params.id);
-        console.log(user);
+        // console.log(user);
         res.status(200).json(user);
     }
     catch(error){
